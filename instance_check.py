@@ -15,6 +15,8 @@ def list_instances(project_id: str, zone: str) -> Iterable[compute_v1.Instance]:
     instance_client = compute_v1.InstancesClient()
     instance_list = instance_client.list(project=project_id, zone=zone)
 
+    print(type(instance_list))
+
     print(f"Instances found in zone {zone}:")
     for instance in instance_list:
         print(f" - {instance.name} ({instance.machine_type})")
@@ -24,3 +26,5 @@ def list_instances(project_id: str, zone: str) -> Iterable[compute_v1.Instance]:
 
 if __name__ == "__main__":
     list_instances(project_id="my-website-387704", zone="us-central1-a")
+    client = compute_v1.DisksClient()
+    print(client.list(zone="us-central1-a", project="my-website-387704"))

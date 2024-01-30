@@ -1,1 +1,4 @@
+rich
 google-cloud-compute
+google-cloud-monitoring
+pandas
